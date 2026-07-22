@@ -89,23 +89,44 @@
       letter-spacing:0.05em;
     }
 
-    /* ===== КЛИКАБЕЛЬНЫЕ КАРТОЧКИ С ЖЁЛТОЙ ОБВОДКОЙ ===== */
-    .info-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin:24px 0; }
+    /* ===== КЛИКАБЕЛЬНЫЕ ПЛАШКИ (4 шт) ===== */
+    .info-cards {
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+      margin:24px 0;
+    }
     .info-card {
-      background:#2A4A3A; padding:28px; border-radius:12px;
-      text-align:center; cursor:pointer;
+      background:#2A4A3A;
+      padding:28px 20px;
+      border-radius:12px;
+      text-align:center;
+      cursor:pointer;
       transition:transform 0.2s, box-shadow 0.2s;
       border:2px solid #E8A838;
     }
-    .info-card:hover { transform:scale(1.02); box-shadow:0 8px 24px rgba(0,0,0,0.3); }
-    .info-card .icon { font-size:44px; margin-bottom:8px; }
+    .info-card:hover {
+      transform:scale(1.03);
+      box-shadow:0 8px 24px rgba(0,0,0,0.3);
+    }
+    .info-card .icon {
+      font-size:44px;
+      margin-bottom:8px;
+      display:block;
+    }
     .info-card h3 {
       font-family: 'Oswald', sans-serif;
-      font-size:26px;
+      font-size:22px;
       text-transform:uppercase;
       letter-spacing:0.03em;
+      margin-bottom:6px;
     }
-    .info-card p { font-family: 'Golos Text', sans-serif; }
+    .info-card p {
+      font-size:16px;
+      color:#C8D6C0;
+      font-family:'Golos Text', sans-serif;
+      line-height:1.4;
+    }
 
     /* ===== ПРЕИМУЩЕСТВА ===== */
     .advantages-grid {
@@ -118,12 +139,7 @@
     }
     .advantage-item:hover { transform:translateY(-4px); }
     .advantage-item .icon { font-size:44px; margin-bottom:8px; }
-    .advantage-item h3 {
-      font-family: 'Oswald', sans-serif;
-      font-size:22px;
-      text-transform:uppercase;
-      letter-spacing:0.02em;
-    }
+    .advantage-item h3 { font-family: 'Oswald', sans-serif; font-size:22px; text-transform:uppercase; letter-spacing:0.02em; }
 
     /* ===== ДЕЛИВЕРАБЛС ===== */
     .deliverables {
@@ -137,7 +153,7 @@
     }
     .deliverable-item .check { color:#E8A838; font-size:32px; }
 
-    /* ===== КАЛЬКУЛЯТОР (КВИЗ) ===== */
+    /* ===== КАЛЬКУЛЯТОР ===== */
     .quiz-section { background:#132A1E; }
     .quiz-container {
       background:#2A4A3A; padding:40px; border-radius:16px;
@@ -160,17 +176,21 @@
     .quiz-options label:hover { background:#2A5A3A; border-color:#E8A838; }
     .quiz-options input[type="radio"] { accent-color:#E8A838; width:22px; height:22px; }
     .quiz-nav { display:flex; justify-content:space-between; margin-top:24px; }
-    .quiz-container h3 {
-      font-family: 'Oswald', sans-serif;
-      text-transform:uppercase;
-      letter-spacing:0.03em;
-    }
+    .quiz-container h3 { font-family: 'Oswald', sans-serif; text-transform:uppercase; letter-spacing:0.03em; }
     .result-price {
       font-family: 'Oswald', sans-serif;
       font-size:44px; font-weight:700; color:#E8A838;
       background:#1A3A2A; padding:16px; border-radius:12px;
       text-align:center; margin:24px 0;
       letter-spacing:0.03em;
+    }
+    .price-disclaimer {
+      font-size:14px;
+      color:#8AA898;
+      text-align:center;
+      margin-top:-16px;
+      margin-bottom:20px;
+      line-height:1.4;
     }
     .contact-final {
       background:#1A3A2A; padding:24px; border-radius:12px;
@@ -181,30 +201,41 @@
     .contact-final a:hover { color:#F0C060; }
 
     /* ===== ГАЛЕРЕЯ КЕЙСОВ ===== */
+    .cases-wrapper {
+      position:relative;
+    }
     .cases-carousel {
-      display:flex; gap:24px; overflow-x:auto; padding:16px 0;
+      display:flex;
+      gap:24px;
+      overflow-x:auto;
+      padding:16px 0;
       scroll-snap-type:x mandatory;
+      scroll-behavior:smooth;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:none;
     }
+    .cases-carousel::-webkit-scrollbar { display:none; }
     .case-item {
-      flex:0 0 280px; background:#2A4A3A; border-radius:12px;
-      overflow:hidden; scroll-snap-align:start; position:relative;
+      flex:0 0 280px;
+      background:#2A4A3A;
+      border-radius:12px;
+      overflow:hidden;
+      scroll-snap-align:start;
+      position:relative;
       box-shadow:0 4px 12px rgba(0,0,0,0.2);
+      cursor:pointer;
+      transition:transform 0.3s ease;
     }
+    .case-item:hover { transform:translateY(-6px); }
     .case-item .case-img {
       width:100%; height:180px; object-fit:cover;
       background:#3A5A4A;
+      transition:transform 0.3s ease;
     }
+    .case-item:hover .case-img { transform:scale(1.03); }
     .case-item .case-body { padding:16px; }
-    .case-item .case-body h4 {
-      font-family: 'Oswald', sans-serif;
-      font-size:24px;
-      text-transform:uppercase;
-      letter-spacing:0.02em;
-    }
-    .case-item .case-body p {
-      font-family: 'Golos Text', sans-serif;
-      color:#A0B8A8;
-    }
+    .case-item .case-body h4 { font-family: 'Oswald', sans-serif; font-size:24px; text-transform:uppercase; letter-spacing:0.02em; }
+    .case-item .case-body p { font-family: 'Golos Text', sans-serif; color:#A0B8A8; }
     .case-stamp {
       position:absolute; top:12px; right:12px;
       background:#E8A838; color:#1A3A2A; padding:6px 16px;
@@ -214,6 +245,44 @@
       text-transform:uppercase;
       transform:rotate(6deg);
       box-shadow:0 2px 8px rgba(0,0,0,0.3);
+      pointer-events:none;
+    }
+
+    /* ===== КНОПКИ НАВИГАЦИИ ===== */
+    .carousel-controls {
+      display:flex;
+      justify-content:center;
+      gap:16px;
+      margin-top:24px;
+    }
+    .carousel-btn {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:56px;
+      height:56px;
+      border-radius:50%;
+      background:#2A4A3A;
+      border:2px solid #E8A838;
+      color:#E8A838;
+      font-size:28px;
+      cursor:pointer;
+      transition:all 0.3s ease;
+      font-family:'Golos Text', sans-serif;
+      user-select:none;
+    }
+    .carousel-btn:hover {
+      background:#E8A838;
+      color:#1A3A2A;
+      transform:scale(1.08);
+      box-shadow:0 4px 20px rgba(232,168,56,0.3);
+    }
+    .carousel-btn:active { transform:scale(0.92); }
+    .carousel-btn:disabled {
+      opacity:0.3;
+      cursor:not-allowed;
+      transform:none !important;
+      box-shadow:none !important;
     }
 
     /* ===== СЧЁТЧИК ===== */
@@ -267,6 +336,7 @@
       width:120px; height:120px; border-radius:50%; object-fit:cover;
       display:block; margin:0 auto 16px;
       background:#3A5A4A;
+      cursor:pointer;
     }
     .modal-content h2 {
       font-family: 'Oswald', sans-serif;
@@ -286,6 +356,40 @@
       letter-spacing:0.05em;
     }
 
+    /* ===== ЛАЙТБОКС ===== */
+    .lightbox {
+      display:none;
+      position:fixed;
+      top:0; left:0; right:0; bottom:0;
+      background:rgba(0,0,0,0.92);
+      z-index:9999;
+      justify-content:center;
+      align-items:center;
+      padding:40px;
+      cursor:pointer;
+    }
+    .lightbox.active { display:flex; }
+    .lightbox img {
+      max-width:90%;
+      max-height:90%;
+      object-fit:contain;
+      border-radius:8px;
+      box-shadow:0 8px 48px rgba(0,0,0,0.6);
+      cursor:default;
+    }
+    .lightbox-close {
+      position:absolute;
+      top:24px;
+      right:32px;
+      font-size:48px;
+      color:#fff;
+      cursor:pointer;
+      transition:color 0.2s;
+      z-index:10000;
+      font-family:'Golos Text', sans-serif;
+    }
+    .lightbox-close:hover { color:#E8A838; }
+
     /* ===== АДАПТИВ ===== */
     @media (max-width:992px) {
       .hero-wrapper { flex-direction:column; text-align:center; }
@@ -301,6 +405,14 @@
       .footer-grid { grid-template-columns:1fr; }
       .quiz-container { padding:24px; }
       .hero-contacts { flex-direction:column; align-items:center; gap:12px; }
+      .lightbox { padding:16px; }
+      .lightbox-close { top:12px; right:16px; font-size:36px; }
+      .result-price { font-size:32px; }
+      .carousel-btn { width:44px; height:44px; font-size:22px; }
+      .case-item { flex:0 0 240px; }
+      .info-card { padding:20px 16px; }
+      .info-card h3 { font-size:18px; }
+      .info-card p { font-size:14px; }
     }
     .mt-16 { margin-top:16px; }
     .mt-24 { margin-top:24px; }
@@ -338,19 +450,24 @@
   <div class="container">
     <div class="info-cards">
       <div class="info-card" data-modal="modal-price">
-        <div class="icon">💰</div>
+        <span class="icon">💰</span>
         <h3>Прямая цена</h3>
-        <p style="font-size:20px; color:#C8D6C0;">от 35 000 ₽ — без посредников</p>
+        <p>от 35 000 ₽ — без посредников</p>
       </div>
       <div class="info-card" data-modal="modal-guarantee">
-        <div class="icon">✅</div>
+        <span class="icon">✅</span>
         <h3>Гарантия согласования</h3>
-        <p style="font-size:20px; color:#C8D6C0;">Прописана в договоре</p>
+        <p>Прописана в договоре</p>
       </div>
       <div class="info-card" data-modal="modal-subsidy">
-        <div class="icon">🌾</div>
+        <span class="icon">🌾</span>
         <h3>Субсидия под ключ</h3>
-        <p style="font-size:20px; color:#C8D6C0;">Поможем получить господдержку</p>
+        <p>Поможем получить господдержку</p>
+      </div>
+      <div class="info-card" data-modal="modal-fullservice">
+        <span class="icon">🔄</span>
+        <h3>Полное сопровождение</h3>
+        <p>Всё делаем сами — вы получаете готовый проект</p>
       </div>
     </div>
   </div>
@@ -375,6 +492,11 @@
         <div class="icon">💸</div>
         <h3>Экономия бюджета</h3>
         <p style="color:#C8D6C0; font-family:'Golos Text', sans-serif;">Стоимость от 35 000 ₽ против 85 000 ₽ у конкурентов</p>
+      </div>
+      <div class="advantage-item">
+        <div class="icon">🚀</div>
+        <h3>Быстро и удобно</h3>
+        <p style="color:#C8D6C0; font-family:'Golos Text', sans-serif;">Минимум бюрократии — мы берём согласование на себя</p>
       </div>
       <div class="advantage-item">
         <div class="icon">🛰️</div>
@@ -446,6 +568,10 @@
       <div class="quiz-step" data-step="4">
         <h3 style="color:#fff;">Примерная стоимость вашего проекта</h3>
         <div class="result-price" id="priceDisplay">—</div>
+        <div class="price-disclaimer">
+          Указанная стоимость является приблизительной и не является публичной офертой.<br>
+          Точная цена определяется после согласования всех параметров проекта.
+        </div>
         <div class="contact-final">
           <p style="font-weight:700; color:#fff; font-family:'Oswald', sans-serif; text-transform:uppercase; letter-spacing:0.03em;">Свяжитесь с нами для уточнения деталей:</p>
           <p>📞 <a href="tel:+79883378156">+7 (988) 337-81-56</a></p>
@@ -466,31 +592,38 @@
 <section class="section">
   <div class="container">
     <h2 class="text-center" style="color:#fff;">Наши <span class="accent-italic">проекты</span> — уже согласованы</h2>
-    <div class="cases-carousel">
-      <div class="case-item">
-        <img class="case-img" src="images/project-gostagoevskaya.webp" alt="Проект Гостагоевская" width="280" height="180" loading="lazy" onerror="this.style.display='none'">
-        <div class="case-body"><h4>Гостагоевская</h4><p>1,4 гектара</p></div>
-        <div class="case-stamp">Согласовано</div>
+    <div class="cases-wrapper">
+      <div class="cases-carousel" id="casesCarousel">
+        <div class="case-item" onclick="openLightbox(this)">
+          <img class="case-img" src="images/gostagoevskaya.png" alt="Проект Гостагоевская" width="280" height="180" loading="lazy" onerror="this.style.display='none'">
+          <div class="case-body"><h4>Гостагоевская</h4><p>1,4 гектара</p></div>
+          <div class="case-stamp">Согласовано</div>
+        </div>
+        <div class="case-item" onclick="openLightbox(this)">
+          <img class="case-img" src="images/smolenskaya.png" alt="Проект Смоленская" width="280" height="180" loading="lazy" onerror="this.style.display='none'">
+          <div class="case-body"><h4>Смоленская</h4><p>16 гектаров</p></div>
+          <div class="case-stamp">Согласовано</div>
+        </div>
+        <div class="case-item" onclick="openLightbox(this)">
+          <img class="case-img" src="images/anapa.png" alt="Проект Анапа" width="280" height="180" loading="lazy" onerror="this.style.display='none'">
+          <div class="case-body"><h4>Анапа</h4><p>8,5 гектаров</p></div>
+          <div class="case-stamp">Согласовано</div>
+        </div>
+        <div class="case-item" onclick="openLightbox(this)">
+          <img class="case-img" src="images/tuapse.png" alt="Проект Туапсе" width="280" height="180" loading="lazy" onerror="this.style.display='none'">
+          <div class="case-body"><h4>Туапсе</h4><p>22 гектара</p></div>
+          <div class="case-stamp">Согласовано</div>
+        </div>
+        <div class="case-item" onclick="openLightbox(this)">
+          <img class="case-img" src="images/krymsk.png" alt="Проект Крымск" width="280" height="180" loading="lazy" onerror="this.style.display='none'">
+          <div class="case-body"><h4>Крымск</h4><p>5,2 гектара</p></div>
+          <div class="case-stamp">Согласовано</div>
+        </div>
       </div>
-      <div class="case-item">
-        <img class="case-img" src="images/project-smolenskaya.webp" alt="Проект Смоленская" width="280" height="180" loading="lazy" onerror="this.style.display='none'">
-        <div class="case-body"><h4>Смоленская</h4><p>16 гектаров</p></div>
-        <div class="case-stamp">Согласовано</div>
-      </div>
-      <div class="case-item">
-        <img class="case-img" src="images/project-anapa.webp" alt="Проект Анапа" width="280" height="180" loading="lazy" onerror="this.style.display='none'">
-        <div class="case-body"><h4>Анапа</h4><p>8,5 гектаров</p></div>
-        <div class="case-stamp">Согласовано</div>
-      </div>
-      <div class="case-item">
-        <img class="case-img" src="images/project-tuapse.webp" alt="Проект Туапсе" width="280" height="180" loading="lazy" onerror="this.style.display='none'">
-        <div class="case-body"><h4>Туапсе</h4><p>22 гектара</p></div>
-        <div class="case-stamp">Согласовано</div>
-      </div>
-      <div class="case-item">
-        <img class="case-img" src="images/project-krymsk.webp" alt="Проект Крымск" width="280" height="180" loading="lazy" onerror="this.style.display='none'">
-        <div class="case-body"><h4>Крымск</h4><p>5,2 гектара</p></div>
-        <div class="case-stamp">Согласовано</div>
+      
+      <div class="carousel-controls">
+        <button class="carousel-btn" id="prevBtn" aria-label="Предыдущий проект">‹</button>
+        <button class="carousel-btn" id="nextBtn" aria-label="Следующий проект">›</button>
       </div>
     </div>
   </div>
@@ -501,7 +634,7 @@
 <div class="modal" id="modal-specialist">
   <div class="modal-content">
     <span class="modal-close" data-close="modal-specialist">&times;</span>
-    <img class="specialist-photo" src="images/specialist.jpg" alt="Сергей Чечурин" width="120" height="120" onerror="this.style.display='none'">
+    <img class="specialist-photo" src="images/specialist.jpg" alt="Сергей Чечурин" width="120" height="120" onclick="openLightbox(this)" onerror="this.style.display='none'">
     <h2 style="color:#fff;">Сергей Чечурин</h2>
     <p><strong>Образование:</strong> КубГУ, факультет математики и компьютерных наук, фундаментальная математика и механика (2021).</p>
     <p><strong>Опыт работы:</strong> 3 года в сфере мелиоративных проектов.</p>
@@ -541,19 +674,43 @@
   </div>
 </div>
 
+<!-- Полное сопровождение -->
+<div class="modal" id="modal-fullservice">
+  <div class="modal-content">
+    <span class="modal-close" data-close="modal-fullservice">&times;</span>
+    <h2 style="color:#fff;">🔄 Полное сопровождение</h2>
+    <p><strong>Мы берём на себя все этапы работы:</strong></p>
+    <ul style="color:#C8D6C0; font-family:'Golos Text', sans-serif; list-style:none; padding:0; margin:16px 0;">
+      <li style="padding:6px 0; border-bottom:1px solid #4A6A5A;">✔ Первичная консультация и выезд на участок</li>
+      <li style="padding:6px 0; border-bottom:1px solid #4A6A5A;">✔ Сбор и подготовка всех документов</li>
+      <li style="padding:6px 0; border-bottom:1px solid #4A6A5A;">✔ Разработка проекта и сметы</li>
+      <li style="padding:6px 0; border-bottom:1px solid #4A6A5A;">✔ Согласование в Мелиоводхозе</li>
+      <li style="padding:6px 0;">✔ Передача готового пакета документов</li>
+    </ul>
+    <p style="color:#E8A838; font-weight:700;">Вам не нужно ничего делать — мы решаем все вопросы от начала до конца.</p>
+  </div>
+</div>
+
+<!-- ==================== ЛАЙТБОКС ==================== -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close" onclick="closeLightbox()">✕</span>
+  <img id="lightboxImage" src="" alt="Увеличенное фото">
+</div>
+
 <!-- ==================== ФУТЕР ==================== -->
 <footer>
   <div class="container footer-grid">
     <div>
       <p class="footer-brand">Мелиорация под ключ</p>
-      <p>ИП / Самозанятый</p>
+      <!-- ИСПРАВЛЕНО: вместо "ИП / Самозанятый" теперь просто "Самозанятый" -->
+      <p>Самозанятый</p>
       <p>ИНН: 616511510630</p>
-      <p>Краснодар, улица Академика Павлова, дом 27</p>
+      <p>📍 <a href="https://yandex.ru/maps/-/CTbeUDI5" target="_blank">Краснодар, улица Академика Павлова, дом 27</a></p>
       <p>Тел: <a href="tel:+79883378156">+7 (988) 337-81-56</a></p>
       <p>Email: <a href="mailto:sergeitchechurin@yandex.ru">sergeitchechurin@yandex.ru</a></p>
     </div>
     <div>
-      <p><a href="#">Политика конфиденциальности</a></p>
+      <p><a href="images/privacy-policy.txt" target="_blank">Политика конфиденциальности</a></p>
       <p><a href="#home">На главную</a></p>
     </div>
     <div>
@@ -567,6 +724,7 @@
   (function() {
     'use strict';
 
+    // ----- КАЛЬКУЛЯТОР -----
     const steps = document.querySelectorAll('.quiz-step');
     const nextBtns = document.querySelectorAll('.btn-next');
     const prevBtns = document.querySelectorAll('.btn-prev');
@@ -615,7 +773,7 @@
       let total = base + distBonus + urgencyBonus;
       if (total < 35000) total = 35000;
 
-      document.getElementById('priceDisplay').textContent = total.toLocaleString('ru-RU') + ' ₽';
+      document.getElementById('priceDisplay').textContent = 'от ' + total.toLocaleString('ru-RU') + ' ₽';
     }
 
     nextBtns.forEach(btn => {
@@ -670,6 +828,62 @@
       e.preventDefault();
       document.getElementById('modal-specialist').classList.add('active');
     });
+
+    // ----- ЛАЙТБОКС -----
+    window.openLightbox = function(element) {
+      const img = element.querySelector('img') || element;
+      if (!img || !img.src) return;
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImage');
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt || 'Фото';
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    };
+
+    window.closeLightbox = function() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    };
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeLightbox();
+      }
+    });
+
+    // ----- НАВИГАЦИЯ КАРУСЕЛИ -----
+    const carousel = document.getElementById('casesCarousel');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    function scrollCarousel(direction) {
+      const scrollAmount = carousel.querySelector('.case-item')?.offsetWidth + 24 || 304;
+      const targetScroll = carousel.scrollLeft + direction * scrollAmount;
+      carousel.scrollTo({
+        left: targetScroll,
+        behavior: 'smooth'
+      });
+    }
+
+    prevBtn.addEventListener('click', function() {
+      scrollCarousel(-1);
+    });
+
+    nextBtn.addEventListener('click', function() {
+      scrollCarousel(1);
+    });
+
+    function updateButtons() {
+      const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+      prevBtn.disabled = carousel.scrollLeft <= 0;
+      nextBtn.disabled = carousel.scrollLeft >= maxScroll - 1;
+    }
+
+    carousel.addEventListener('scroll', updateButtons);
+    window.addEventListener('resize', updateButtons);
+    setTimeout(updateButtons, 100);
 
     // ----- ПЛАВНАЯ ПРОКРУТКА -----
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
