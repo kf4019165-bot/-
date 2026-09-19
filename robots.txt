@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /404.html
+Allow: /
+
+Sitemap: https://melioration-krd.ru/sitemap.xml
